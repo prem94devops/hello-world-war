@@ -1,0 +1,41 @@
+---
+- name: deployment
+  hosts: all
+  become: True
+  vars:
+    nexus_url: http://3.19.32.4:8081/repository
+    repository_type: mymaven-releases
+    group_id: com.efsavage
+    artifact_id: hello-world-war
+    version: 1.0.0
+    build_number: "{{build_number}}"
+  tasks:
+  - name: Download file from a file path
+    ansible.builtin.get_url:
+      url: "{{nexus_url}}/{{repository_type}}/{{group_id}}/{{artifact_id}}/{{version}}.{{build_number}}/{{artifact_id}}-{{version}}.{{ build_number}}.war"
+      dest: /usr/share/tomcat/webapps
+      username: admin
+      password: afrin
+
+  - name: find the process
+    ansible.builtin.shell: "ps -ef | awk '/tomcat/&&/java/&&!/awk/{print $2}'"
+    register: result
+  - debug: var=result
+    
+  - name: kill the process
+    shell: "kill -9 {{result.stdout}}"
+    when: result.stdout
+
+  - wait_for:
+       path: "/proc/{{ item }}/status"  
+       state: absent
+    with_items: "{{ result.stdout_lines }}"
+    ignore_errors: yes
+    register: killed_processes
+    
+  - name: restart systemd, enable tomcat service and start tomcat service
+    ansible.builtin.systemd:
+       name: tomcat.service
+       daemon-reload: yes
+       state: started
+       enabled: yes
