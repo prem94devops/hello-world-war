@@ -14,7 +14,7 @@ pipeline{
 
             }
         }
-        /*stage("unit testing"){
+        stage("unit testing"){
             steps{
                 
                 sh 'mvn test'
@@ -30,7 +30,7 @@ pipeline{
 
                 }
             }
-        }*/
+        }
         /*stage("sonar"){
             steps{
                 script{
@@ -52,7 +52,7 @@ pipeline{
                sh 'mvn -s settings.xml deploy -Dv=${BUILD_NUMBER} -DuniqueVersion=false'
             }
         }
-        stage("deployment"){
+        /*stage("deployment"){
             agent{
                 label 'ansible_master'
             }
@@ -62,7 +62,7 @@ pipeline{
                 }
                   
               }
-        }
+        }*/
         
     }
 
