@@ -40,7 +40,7 @@
     </snapshotRepository>
     <repository>
       <id>mymaven-releases</id>
-      <url>http://18.221.139.2/8081/repository/mymaven-releases/</url>
+      <url>http://18.221.139.2:8081/repository/mymaven-releases/</url>
     </repository>
   </distributionManagement>
 
