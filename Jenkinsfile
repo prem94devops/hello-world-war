@@ -14,7 +14,7 @@ pipeline{
 
             }
         }
-        stage("unit testing"){
+        /*stage("unit testing"){
             steps{
                 
                 sh 'mvn test'
@@ -30,7 +30,7 @@ pipeline{
 
                 }
             }
-        }
+        }*/
         /*stage("sonar"){
             steps{
                 script{
