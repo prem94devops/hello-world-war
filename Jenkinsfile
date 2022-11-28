@@ -9,7 +9,7 @@ pipeline{
         stage("build"){
             steps{
                 script{
-                    sh 'mvn install'
+                    sh 'mvn install -Dv=${BUILD_NUMBER}'
                 }
 
             }
