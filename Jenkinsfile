@@ -49,7 +49,7 @@ pipeline{
         }*/
         stage("upload artifact"){
             steps{
-               sh 'mvn -s settings.xml deploy -Dv=${BUILD_NUMBER} -DuniqueVersion=false'
+               sh 'mvn -s settings.xml deploy'
             }
         }
         /*stage("deployment"){
