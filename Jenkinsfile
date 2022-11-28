@@ -49,7 +49,7 @@ pipeline{
         }*/
         stage("upload artifact"){
             steps{
-               sh 'mvn deploy'
+               sh 'mvn -s settings.xml deploy'
             }
         }
         /*stage("deployment"){
