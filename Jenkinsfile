@@ -47,11 +47,11 @@ pipeline{
             }
 
         }*/
-        /*stage("upload artifact"){
+        stage("upload artifact"){
             steps{
                sh 'mvn -s settings.xml deploy'
             }
-        }*/
+        }
         /*stage("deployment"){
             agent{
                 label 'ansible_master'
