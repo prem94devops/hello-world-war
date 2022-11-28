@@ -52,7 +52,7 @@ pipeline{
                sh 'mvn -s settings.xml deploy -Dv=${BUILD_NUMBER}'
             }
         }
-        /*stage("deployment"){
+        stage("deployment"){
             agent{
                 label 'ansible_master'
             }
@@ -62,7 +62,7 @@ pipeline{
                 }
                   
               }
-        }*/
+        }
         
     }
 
