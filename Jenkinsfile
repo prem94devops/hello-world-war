@@ -9,7 +9,7 @@ pipeline{
         stage("build"){
             steps{
                 script{
-                    sh 'mvn install -Dv=${BUILD_NUMBER}'
+                    sh 'mvn install'
                 }
 
             }
@@ -47,11 +47,11 @@ pipeline{
             }
 
         }*/
-        stage("upload artifact"){
+        /*stage("upload artifact"){
             steps{
                sh 'mvn -s settings.xml deploy'
             }
-        }
+        }*/
         /*stage("deployment"){
             agent{
                 label 'ansible_master'
