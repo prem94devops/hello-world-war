@@ -4,14 +4,14 @@
   vars:
     nexus_url: http://18.221.139.2:8081/repository
     repository_type: mymaven-releases
-    group_id: com.efsavage
+    group_id: com/efsavage
     artifact_id: hello-world-war
     version: 1.0.0
     build_number: "{{build_number}}"
   tasks:
   - name: Download file from a file path
     ansible.builtin.get_url:
-      url: "{{nexus_url}}/{{repository_type}}/{{group_id}}/{{artifact_id}}/{{version}}.{{build_number}}/{{artifact_id}}-{{version}}.{{ build_number}}.war"
+      url: "{{nexus_url}}/{{repository_type}}/{{group_id}}/{{artifact_id}}/{{version}}-{{build_number}}/{{artifact_id}}-{{version}}-{{ build_number}}.war"
       dest: /usr/share/tomcat/webapps
       username: admin
       password: afrin
