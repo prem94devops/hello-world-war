@@ -13,7 +13,7 @@ pipeline{
 
             }
         }
-        /*stage("unit testing"){
+        stage("unit testing"){
             steps{
                 
                 sh 'mvn test'
@@ -29,8 +29,8 @@ pipeline{
 
                 }
             }
-        }*/
-        /*stage("sonar"){
+        }
+        stage("sonar"){
             steps{
                 script{
                     withSonarQubeEnv(credentialsId: 'mysonar') {
@@ -38,14 +38,14 @@ pipeline{
                         -Dsonar.projectKey=simple-java-maven-app \
                         -Dsonar.sources=. \
                         -Dsonar.java.binaries=target \
-                        -Dsonar.host.url=http://172.31.27.2:9000 \
-                        -Dsonar.login=sqp_25f7dde585f6341f3a80f67cb9affbd0631c196e"
+                        -Dsonar.host.url=http://18.180.157.138:9000\
+                        -Dsonar.login=sqp_376ebffc91921f7fbeb0ee9a725814e14b1a4ebf"
     
                     }
                 }
             }
 
-        }*/
+        }
         stage("upload artifact"){
             steps{
                sh 'mvn -s settings.xml deploy -Dv=${BUILD_NUMBER}'
@@ -53,7 +53,7 @@ pipeline{
         }
         stage("deployment"){
             agent{
-                label 'ansible_master'
+                label 'any'
             }
               steps{
                 script{
