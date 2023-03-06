@@ -42,7 +42,7 @@ pipeline{
                         -Dsonar.host.url=http://18.180.157.138:9000\
                         -Dsonar.login=sqp_376ebffc91921f7fbeb0ee9a725814e14b1a4ebf"
     
-                    }
+                    }for trail
                 }
             }
 
