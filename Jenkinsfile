@@ -52,7 +52,7 @@ pipeline{
         }
         stage("deployment"){
             agent{
-                label any
+                label 'ANSIBLE_MASTER'
             }
               steps{
                 script{
