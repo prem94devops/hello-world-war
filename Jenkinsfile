@@ -52,7 +52,7 @@ pipeline{
         }
         stage("deployment"){
             agent{
-                label 'any'
+                label any
             }
               steps{
                 script{
