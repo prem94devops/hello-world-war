@@ -5,14 +5,14 @@
 
   <servers>
     <server>
-      <id>mymaven-snapshots</id>
+      <id>java-maven-war-app-snapshot</id>
       <username>admin</username>
-      <password>afrin</password>
+      <password>0280719930</password>
     </server>
     <server>
-      <id>mymaven-releases</id>
+      <id>java-maven-war-app-release</id>
       <username>admin</username>
-      <password>afrin</password>
+      <password>0280719930</password>
     </server>
   </servers>
   
@@ -20,7 +20,7 @@
     <mirror>
       <id>central</id>
       <name>central</name>
-      <url>http://18.221.139.2:8081/repository/mymaven-central/</url>
+      <url>http://35.72.182.29:8081/repository/java-maven-war-app-central/</url>
       <mirrorOf>*</mirrorOf>
     </mirror>
   </mirrors>

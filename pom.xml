@@ -27,20 +27,20 @@
 	</build>
 	<repositories>
     <repository>
-      <id>mymaven-group</id>
-      <url>http://18.221.139.2:8081/repository/mymaven-group/</url>
+      <id>java-maven-war-app-group</id>
+      <url>http://35.72.182.29:8081/repository/java-maven-war-app-group/</url>
     </repository>
   </repositories>
 
     <distributionManagement>
     <snapshotRepository>
       <uniqueVersion>false</uniqueVersion>
-      <id>mymaven-snapshots</id>
-      <url>http://18.221.139.2:8081/repository/mymaven-snapshots/</url>
+      <id>java-maven-war-app-snapshot</id>
+      <url>http://35.72.182.29:8081/repository/java-maven-war-app-snapshot/</url>
     </snapshotRepository>
     <repository>
-      <id>mymaven-releases</id>
-      <url>http://18.221.139.2:8081/repository/mymaven-releases/</url>
+      <id>java-maven-war-app-release</id>
+      <url>http://35.72.182.29:8081/repository/java-maven-war-app-release/</url>
     </repository>
   </distributionManagement>
 

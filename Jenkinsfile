@@ -3,7 +3,7 @@ pipeline{
   label 'buildserver'
     }
      tools{
-        maven 'mymaven'
+        maven 'MAVEN_3.9.0'
      }
       stages{
         stage("build"){
