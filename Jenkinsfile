@@ -40,7 +40,7 @@ pipeline{
                         -Dsonar.host.url=http://18.183.205.42:9000\
                         -Dsonar.login=sqa_48a536dbfd09ebd14d127c4d1f71c0b4e2ba9370"
     
-                    }
+                    }111
                 }
             }
 

@@ -1,10 +1,10 @@
 <html>
 <head>
-<title>Hello World2!</title>
+<title>Hello_World</title>
 
 </head>
 <body>
-	<h1>Hello Afrin!</h1>
+	<h1>Hello world!</h1>
 	<h1>Devops Training</h1>
 	<p>
 		It is now
