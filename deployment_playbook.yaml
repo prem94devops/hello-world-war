@@ -2,8 +2,8 @@
   hosts: all
   become: True
   vars:
-    nexus_url: http://18.221.139.2:8081/repository
-    repository_type: mymaven-releases
+    nexus_url: http://43.206.113.174:8081/repository
+    repository_type: 	java-maven-war-app-release
     group_id: com/efsavage
     artifact_id: hello-world-war
     version: 1.0.0
@@ -14,25 +14,16 @@
       url: "{{nexus_url}}/{{repository_type}}/{{group_id}}/{{artifact_id}}/{{version}}-{{build_number}}/{{artifact_id}}-{{version}}-{{ build_number}}.war"
       dest: /tmp
       username: admin
-      password: afrin
-  - name: rename war file
-    shell: "mv /tmp/hello-world-war* /usr/share/tomcat/webapps/helloworld.war"
+      password: 0280719930
 
-  - name: find the process
-    ansible.builtin.shell: "ps -ef | awk '/tomcat/&&/java/&&!/awk/{print $2}'"
-    register: result
-  - debug: var=result
-    
-  - name: kill the process
-    shell: "kill -9 {{result.stdout}}"
-    when: result.stdout
+  - name: Rename war file
+    ansible.builtin.shell: mv /home/ec2-user/{{group_id}}%2F{{artifact_id}}%2F{{version}}-{{build_number}}%2F{{artifact_id}}-{{version}}-{{ build_number}}.war /home/ec2-user/faangler.war
 
-  - wait_for:
-       path: "/proc/{{ item }}/status"  
-       state: absent
-    with_items: "{{ result.stdout_lines }}"
-    ignore_errors: yes
-    register: killed_processes
+  - name: Deploying artifact in webapps
+    ansible.builtin.shell: cp /home/ec2-user/first.war /home/ec2-user/apache-tomcat-9.0.72/webapps/first.war
+
+  - name: remove the artifact
+    ansible.builtin.shell: "rm -rf cp /home/ec2-user/first.war"
     
   - name: restart systemd, enable tomcat service and start tomcat service
     ansible.builtin.systemd:
