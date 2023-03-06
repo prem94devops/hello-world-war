@@ -56,7 +56,7 @@ pipeline{
             }
               steps{
                 script{
-                   sh 'ansible-playbook -i  deploy.yml -e "build_number=${BUILD_NUMBER}\"'
+                   sh 'ansible-playbook -i inventory.yaml deploy.yml -e "build_number=${BUILD_NUMBER}\"'
                 }
                   
               }
