@@ -13,25 +13,23 @@ pipeline{
 
             }
         }
-        /*stage("unit testing"){
+        stage("Unit Testing") {
             steps{
-                
                 sh 'mvn test'
             }
-            post{
+            post {
                 success{
-                     echo "junit testing is success,publishing report"
-                     junit 'target/surefire-reports/*.xml'
-                
+                    echo "======Unit testing completed successfull, publishing report========="
+                    junit 'target/surefire-reports/*.xml'
                 }
                 failure{
-                    echo "junit testing is failed"
+                    echo "==========unit test cases failed, report not published===="
 
                 }
             }
         }
 
-        stage("sonar"){
+        /*stage("sonar"){
             steps{
                 script{
                     withSonarQubeEnv(credentialsId: 'SONARQUBE') {
