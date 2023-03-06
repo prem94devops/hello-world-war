@@ -38,7 +38,7 @@ pipeline{
                         -Dsonar.sources=. \
                         -Dsonar.java.binaries=target \
                         -Dsonar.host.url=http://18.183.205.42:9000\
-                        -Dsonar.login=sqp_376ebffc91921f7fbeb0ee9a725814e14b1a4ebf"
+                        -Dsonar.login=sqp_1ccfcbc3a541695cdf212d9638fc67cd96ffe9a6"
     
                     }
                 }
