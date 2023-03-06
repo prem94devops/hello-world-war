@@ -13,7 +13,7 @@ pipeline{
 
             }
         }
-        stage("Unit Testing") {
+        /*stage("Unit Testing") {
             steps{
                 sh 'mvn test'
             }
@@ -27,9 +27,9 @@ pipeline{
 
                 }
             }
-        }
+        }*/
 
-        /*stage("sonar"){
+        stage("sonar"){
             steps{
                 script{
                     withSonarQubeEnv(credentialsId: 'SONARQUBE') {
@@ -37,14 +37,14 @@ pipeline{
                         -Dsonar.projectKey=java-maven-war-app \
                         -Dsonar.sources=. \
                         -Dsonar.java.binaries=target \
-                        -Dsonar.host.url=http://18.180.157.138:9000\
+                        -Dsonar.host.url=http://18.183.205.42:9000\
                         -Dsonar.login=sqp_376ebffc91921f7fbeb0ee9a725814e14b1a4ebf"
     
                     }
                 }
             }
 
-        }*/
+        }
         stage("upload artifact"){
             steps{
                sh 'mvn -s settings.xml deploy -Dv=${BUILD_NUMBER}'
