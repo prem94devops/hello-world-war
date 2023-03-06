@@ -34,9 +34,9 @@ pipeline{
         stage("sonar"){
             steps{
                 script{
-                    withSonarQubeEnv(credentialsId: 'mysonar') {
-                        sh "${tool("mysonar")}/bin/sonar-scanner \
-                        -Dsonar.projectKey=simple-java-maven-app \
+                    withSonarQubeEnv(credentialsId: 'SONARQUBE') {
+                        sh "${tool("SONARQUBE")}/bin/sonar-scanner \
+                        -Dsonar.projectKey=java-maven-war-app \
                         -Dsonar.sources=. \
                         -Dsonar.java.binaries=target \
                         -Dsonar.host.url=http://18.180.157.138:9000\
