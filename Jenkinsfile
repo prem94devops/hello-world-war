@@ -1,7 +1,6 @@
 pipeline{
-    agent{
-  label 'buildserver'
-    }
+    agent any
+
      tools{
         maven 'MAVEN_3.9.0'
      }
