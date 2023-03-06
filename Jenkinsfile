@@ -29,7 +29,7 @@ pipeline{
 
                 }
             }
-        }*/
+        }
 
         stage("sonar"){
             steps{
@@ -46,7 +46,7 @@ pipeline{
                 }
             }
 
-        }
+        }*/
         stage("upload artifact"){
             steps{
                sh 'mvn -s settings.xml deploy -Dv=${BUILD_NUMBER}'
